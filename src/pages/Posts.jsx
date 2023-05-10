@@ -9,7 +9,7 @@ const Posts = () => {
   const [searchId, setSearchId] = useState(id);
 
   function onSearch() {
-    fetchPosts(searchId)
+    fetchPosts(searchId);
   }
 
   async function fetchPosts(userId) {
@@ -24,15 +24,18 @@ const Posts = () => {
     fetchPosts();
   }, []);
 
-
-
   return (
     <>
       <div className="post__search">
         <button>← Back</button>
         <div className="post__search--container">
           <label className="post__search--label">Search by Id</label>
-          <input type="number" value={searchId} onChange={(event) => setSearchId(event.target.value)} />
+          <input
+            type="number"
+            value={searchId}
+            onChange={(event) => setSearchId(event.target.value)}
+            onKeyUp={(event) => console.log(event.key)}
+          />
           <button onClick={() => onSearch()}>Enter</button>
         </div>
       </div>
