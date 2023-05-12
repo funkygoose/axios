@@ -20,6 +20,12 @@ const Posts = () => {
     setLoading(false);
   }
 
+  function onSearchKeyPress(key) {
+    if (key === "Enter") {
+      onSearch();
+    }
+  }
+
   useEffect(() => {
     fetchPosts();
   }, []);
