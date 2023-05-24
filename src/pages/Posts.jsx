@@ -13,6 +13,7 @@ const Posts = () => {
   }
 
   async function fetchPosts(userId) {
+    setLoading(true);
     const { data } = await axios.get(
       `https://jsonplaceholder.typicode.com/posts?userId=${userId || id}`
     );
@@ -40,7 +41,7 @@ const Posts = () => {
             type="number"
             value={searchId}
             onChange={(event) => setSearchId(event.target.value)}
-            onKeyUp={(event) => console.log(event.key)}
+            onKeyUp={(event) => onSearchKeyPress(event.key)}
           />
           <button onClick={() => onSearch()}>Enter</button>
         </div>
