@@ -1,10 +1,13 @@
 import React, {useState} from "react";
-import 
+import axios from "axios";
 
 const Home = () => {
+    const [users, setUsers] = useState([]);  
 
-    const [users, setUsers] 
-  "https://jsonplaceholder.typicode.com/users"
+    async function getUsers() {
+      const { data } = axios.get("https://jsonplaceholder.typicode.com/users")
+      
+    }
 
   return (
     <div className="container">
@@ -13,16 +16,16 @@ const Home = () => {
           <div className="user">
             <div className="user-card">
               <div className="user-card__container">
-                <h3>{user.name}</h3>
+                <h3>user.name</h3>
                 <p>
-                  <b>Email:</b> {user.email}
+                  <b>Email:</b> user.email
                 </p>
                 <p>
-                  <b>Phone:</b> {user.phone}
+                  <b>Phone:</b> user.phone
                 </p>
                 <p>
                   <b>Website:</b>
-                  {user.website}
+                  user.website
                 </p>
               </div>
             </div>
